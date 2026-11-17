@@ -1,0 +1,18 @@
+# Files kept in GitHub but not published on Vercel.
+
+# Internal notes and project docs
+*.md
+.claude/
+.gitignore
+
+# Design-kit demo pages, test pages and build scripts (the site never loads them)
+*.mjs
+assets/backgrounds/check.html
+assets/backgrounds/demo.html
+assets/diagrams/demo.html
+assets/diagrams/lab.html
+assets/motion/demo.html
+assets/motion/_hover-test.html
+assets/ui/_lab/
+assets/ui/index.html
+assets/ui/cards.html
