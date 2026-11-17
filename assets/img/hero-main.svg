@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1400" viewBox="0 0 1200 1400">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f4f1"/><stop offset="1" stop-color="#bfe3da"/></linearGradient>
+<pattern id="d" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#037fae" fill-opacity=".07"/></pattern></defs>
+<rect width="1200" height="1400" fill="url(#g)"/><rect width="1200" height="1400" fill="url(#d)"/>
+<g transform="translate(408.0 536.8)" fill="#037fae" fill-opacity=".22"><circle cx="278.4" cy="86.4" r="42.24"/><path d="M0 307.20000000000005 L134.39999999999998 134.39999999999998 L220.79999999999998 230.39999999999998 L278.4 182.39999999999998 L384.0 307.20000000000005 Z"/></g>
+<text x="600.0" y="904.0" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="48" font-weight="600" fill="#037fae" fill-opacity=".75">Hero: family at home with purifier</text>
+<text x="600.0" y="971.2" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="34" fill="#037fae" fill-opacity=".5">PLACEHOLDER · 1200×1400</text>
+</svg>

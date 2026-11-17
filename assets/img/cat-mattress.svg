@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5ebe8"/><stop offset="1" stop-color="#e8cfc7"/></linearGradient>
+<pattern id="d" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#8a3f2c" fill-opacity=".07"/></pattern></defs>
+<rect width="900" height="1100" fill="url(#g)"/><rect width="900" height="1100" fill="url(#d)"/>
+<g transform="translate(306.0 427.6)" fill="#8a3f2c" fill-opacity=".22"><circle cx="208.79999999999998" cy="64.8" r="31.68"/><path d="M0 230.4 L100.8 100.8 L165.6 172.79999999999998 L208.79999999999998 136.79999999999998 L288.0 230.4 Z"/></g>
+<text x="450.0" y="703.0" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="36" font-weight="600" fill="#8a3f2c" fill-opacity=".75">Bedroom mattress lifestyle</text>
+<text x="450.0" y="753.4" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="25" fill="#8a3f2c" fill-opacity=".5">PLACEHOLDER · 900×1100</text>
+</svg>

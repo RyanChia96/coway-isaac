@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f4f1"/><stop offset="1" stop-color="#bfe3da"/></linearGradient>
+<pattern id="d" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#037fae" fill-opacity=".07"/></pattern></defs>
+<rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#d)"/>
+<g transform="translate(499.2 229.32)" fill="#037fae" fill-opacity=".22"><circle cx="146.16" cy="45.36" r="22.176"/><path d="M0 161.28 L70.55999999999999 70.55999999999999 L115.91999999999999 120.96 L146.16 95.75999999999999 L201.6 161.28 Z"/></g>
+<text x="600.0" y="422.1" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="25" font-weight="600" fill="#037fae" fill-opacity=".75">Social share image</text>
+<text x="600.0" y="457.38" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="18" fill="#037fae" fill-opacity=".5">PLACEHOLDER · 1200×630</text>
+</svg>

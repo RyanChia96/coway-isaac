@@ -1,0 +1,11 @@
+# design-skill install and its check output (local tooling, not part of the site)
+.agents/
+.claude/skills/
+.taste-skill/
+skills-lock.json
+# local backup of the previous design
+_backup/
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
