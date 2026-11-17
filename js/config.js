@@ -20,8 +20,18 @@ window.SITE = {
     endDate: "30 November 2026",
   },
 
-  // Google Tag Manager container ID. Leave "" until you have one.
-  gtmId: "",
+  /* ---------- Conversion tracking: pick ONE of the two ways ----------
+     A) Google Ads tag only (simplest): fill googleAds below, leave gtmId "".
+        The site fires the conversions itself.
+     B) Google Tag Manager: fill gtmId, leave googleAds.id "".
+        Set up the conversions in GTM from the dataLayer events (see README).
+     Never fill both, or every conversion is counted twice. */
+  gtmId: "",                                // e.g. "GTM-ABC1234"
+  googleAds: {
+    id: "",                                 // e.g. "AW-123456789" (Google Ads > Goals > Conversions > tag setup)
+    whatsappLabel: "",                      // conversion label for "WhatsApp click", e.g. "AbCdEfGhIjKlMn"
+    formLabel: "",                          // conversion label for "Quote form sent"
+  },
 
   legalUpdated: "15 November 2026",
 };

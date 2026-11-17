@@ -14,19 +14,30 @@ Open http://localhost:5173
 | Agent name, ID, SSM, address, phone, hours, brand name | `js/config.js` |
 | This month's promo (month, price, promo months, end date) | `js/config.js` → `promo` |
 | Products, prices, tags, features | `js/products.js` (**all prices are placeholders — confirm with the agent**) |
-| Images | `assets/img/` — replace each `.svg` with a real photo of the same name. If you use `.webp`/`.jpg`, update the extension in `index.html` (hero, spotlight, gallery, agent) and `js/main.js` (categories `.svg`, products `p-*.svg`). |
+| Product photos | `assets/img/products/<id>.webp` (WebP, white background); the file name is the `img` field in `js/products.js` |
 | Domain | `index.html` → `<link rel="canonical">` |
-| Google Tag Manager | `js/config.js` → `gtmId` |
+| Conversion tracking IDs | `js/config.js` → `googleAds` or `gtmId` (below) |
 
-Recommended image sizes: hero 1200×1400, product shots 900×900 (square, plain background), categories 900×1100, gallery any ratio. Export as WebP, under ~150 KB each.
+## Conversion tracking
+Two conversions matter for the ads:
+- **WhatsApp click** — any "Check promotion on WhatsApp" / "Check promo" button (counted once per page view).
+- **Quote form sent** — the "Ask for this month's price" form (it then opens WhatsApp with the details).
 
-## Conversion tracking (set up in GTM)
-`main.js` pushes these `dataLayer` events:
-- `whatsapp_click` — `location` (header, hero, product-card, product-modal, quiz, lead-form, mobile-bar, …), `product`
-- `call_click` — `location`
-- `quiz_submit`, `lead_form_submit`
+Consent Mode v2 is built in: tags start in "denied" until the visitor accepts the cookie notice, and Google Ads models the rest. Pick **one** way:
 
-In GTM: create a Custom Event trigger for `whatsapp_click` and `call_click`, then attach a Google Ads Conversion tag and a GA4 event tag. Consent Mode v2 is already wired (defaults to denied until the visitor accepts the cookie banner).
+**A) Google Ads tag only (simplest).** In Google Ads › Goals › Conversions, create two *Website* conversions ("WhatsApp click", "Quote form sent"), choose *Use Google tag manually*, and copy the `AW-…` ID and each conversion label into `js/config.js`:
+```js
+googleAds: { id: "AW-123456789", whatsappLabel: "AbC…", formLabel: "XyZ…" },
+```
+The site fires both conversions itself.
+
+**B) Google Tag Manager.** Put the container ID in `gtmId` and leave `googleAds.id` empty. `main.js` pushes these `dataLayer` events:
+- `whatsapp_click` — `location` (nav, hero, product-card, product-modal, faq, actionbar), `product`
+- `lead_form_submit` — `product`
+
+In GTM, add a Custom Event trigger for each and attach a Google Ads Conversion Tracking tag (plus a Conversion Linker tag on all pages).
+
+Never fill both, or every conversion is counted twice. Test with Google Tag Assistant (tagassistant.google.com) before the ads go live.
 
 ## Pages
 - `index.html` — main landing page

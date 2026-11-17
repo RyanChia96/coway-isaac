@@ -18,7 +18,9 @@
   function bindWa(el) { el.href = waUrl(el.getAttribute("data-wa")); el.target = "_blank"; el.rel = "noopener"; }
   document.addEventListener("click", function (e) {
     var a = e.target.closest("[data-wa]");
-    if (a) track("whatsapp_click", { location: a.getAttribute("data-track") || "unknown", product: a.getAttribute("data-product") || "" });
+    if (!a) return;
+    track("whatsapp_click", { location: a.getAttribute("data-track") || "unknown", product: a.getAttribute("data-product") || "" });
+    window.trackConversion && window.trackConversion("whatsapp");
   });
 
   /* ---------- Config values (placeholders in [brackets] keep the page's own words) ---------- */
@@ -120,7 +122,7 @@
     var msg = "Hi, I'd like this month's Coway price.\nName: " + fd.get("name") + "\nPhone: " + fd.get("phone") +
       (fd.get("product") ? "\nInterested in: " + fd.get("product") : "") + (fd.get("area") ? "\nArea: " + fd.get("area") : "");
     track("lead_form_submit", { product: fd.get("product") || "" });
-    track("whatsapp_click", { location: "lead-form" });
+    window.trackConversion && window.trackConversion("form");
     window.open(waUrl(msg), "_blank", "noopener");
   });
 
