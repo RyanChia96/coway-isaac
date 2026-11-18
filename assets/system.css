@@ -224,7 +224,7 @@ main > :is(section, .section), footer.closing {
   padding: var(--padt) 0 calc(var(--padb) + var(--bar));
 }
 main > :is(section, .section) > :is(.wrap, .container), footer.closing > .wrap { position: relative; z-index: 1; height: 100%; }
-main > :is(section, .section) > :is(.wrap, .container):not(.grid) { display: flex; flex-direction: column; }
+main > :is(section, .section) > :is(.wrap, .container):not(.grid) { display: flex; flex-direction: column; justify-content: center; }
 /* a .wrap that is the section's grid too (class="wrap grid"): its rows start at the top */
 main > :is(section, .section) > :is(.wrap, .container).grid { align-content: start; }
 /* .fill: the block that takes what the screen leaves under the heading (a photograph, a frame) */

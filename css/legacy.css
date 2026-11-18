@@ -12,12 +12,17 @@
 .brand-word { color: var(--o-blue); }
 
 /* ---------- Hero ---------- */
-.oh { position: relative; }
-.oh::before { content: ""; position: absolute; inset: 0 0 auto auto; width: 60%; height: 100%; background: radial-gradient(60% 60% at 70% 40%, var(--o-mint-soft), transparent 70%); pointer-events: none; z-index: 0; }
-.oh__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.oh { position: relative; background: #fff; overflow: hidden; }
+/* the hero photograph: a layer behind the words on a desktop (its left side fades to white for the text),
+   a picture under the words on a phone */
+.oh__bg { position: absolute; inset: 0; z-index: 0; }
+.oh__bg img { position: absolute; top: 0; right: 0; height: 100%; width: auto; max-width: none; }
+/* a soft white wash from the left keeps the words readable over the blurred kitchen */
+.oh__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.92) 30%, rgba(255,255,255,.55) 45%, rgba(255,255,255,0) 60%); pointer-events: none; }
+.oh__grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 620px); align-items: center; }
 .oh__grid > * { min-width: 0; }
 .oh__promo { display: inline-flex; align-items: center; gap: .4em; font-size: 13px; font-weight: 500; color: var(--o-promo); background: var(--o-promo-soft); padding: .35em .8em; border-radius: 999px; margin-bottom: var(--s-5); }
-.oh h1 { font-size: clamp(40px, 5.2vw, 72px); line-height: 1.04; font-weight: 600; letter-spacing: -0.035em; margin: 0; }
+.oh h1 { font-size: clamp(34px, 4.3vw, 60px); line-height: 1.06; font-weight: 600; letter-spacing: -0.035em; margin: 0; }
 .oh h1 .hl { color: var(--o-blue); background: linear-gradient(transparent 64%, rgba(4,166,225,.3) 64%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .oh .nowrap { white-space: nowrap; }
 .oh__lead { font-size: 18px; line-height: 1.55; max-width: 52ch; margin: var(--s-5) 0 0; }
@@ -80,8 +85,7 @@
 
 @keyframes oh-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .oh__copy { animation: oh-enter .7s cubic-bezier(.16,1,.3,1) both; }
-.oh__media { animation: oh-enter .8s cubic-bezier(.16,1,.3,1) .12s both; }
-@media (prefers-reduced-motion: reduce) { .oh__copy, .oh__media { animation: none; } .oh__media img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .oh__copy { animation: none; } }
 
 @media (max-width: 1023px) {
   .oh__grid { grid-template-columns: 1fr; }
@@ -90,6 +94,7 @@
   .oc-modal__img { aspect-ratio: 4 / 3; }
 }
 @media (max-width: 639px) {
+  .oh h1 br:first-of-type { display: none; }   /* the keyword lines flow on a phone; the price keeps its own line */
   .oh__media { grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; aspect-ratio: 1 / 1.05; gap: 10px; }
   .oh__main { grid-row: 1; grid-column: 1 / -1; }
   .oh .btn-row .btn { width: 100%; }
@@ -100,4 +105,16 @@
   .oc-card ul { display: none; }
   .oc-price__now { font-size: 20px; }
   .oc-card .btn { font-size: 14px; padding: 0 .6em; }
+}
+
+/* phone and small tablet: the words first on white, the photograph under them, edge to edge */
+@media (max-width: 767px) {
+  .hero.oh { flex-direction: column; align-items: stretch; justify-content: flex-start; padding-bottom: 0; }
+  .oh__bg { position: static; order: 2; margin-top: var(--s-5); }
+  .oh__bg img { position: static; width: 100%; height: auto; }
+  .oh__bg::after { content: none; }
+}
+/* 768-1023: the text over the photograph's white side, narrower */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .oh__grid { grid-template-columns: minmax(0, 52%); }
 }
